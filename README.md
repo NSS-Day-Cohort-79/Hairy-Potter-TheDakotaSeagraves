@@ -120,12 +120,15 @@ In the `main.js` module, invoke the `PotteryList` component function. Take its r
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Explain how you got the HTML, with the correct data, displayed in the browser?
-   > Your answer here
+   > The main.js module contains and executes functions from four other modules to display pottery in the browser. potteryWheel.js provides the makePottery function which creates pottery objects with properties like shape, weight, height, and a unique ID. kiln.js provides the firePottery function which sets a fired property and determines if pottery is cracked based on temperature (anything over 2200 degrees causes cracking). PotteryCatalog.js provides the toSellOrNotToSell function which filters out cracked pottery and assigns prices based on weight ($40 for items weighing 6 or more, $20 for lighter pieces). and potteryList.js imports the usePottery function and creates the PotteryList function, which loops through the sellable pottery and generates a single HTML string displaying each piece's shape, weight, height, and price. The main.js module then inserts this HTML string into the article element in the DOM, making it visible in the browser.
+
 2. In the **PotteryList** module, when you iterate your pottery, you need to show the evidence of what the **weight** property's value is for the 2nd piece of pottery. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/7d23209ef7474a98a8d41f68e173d0f5
+
 3. The **PotteryWheel** module has a single function named `makePottery`. Why doesn't that module have all of the other code in it?
-   > Your answer here
+   > Each module has one specific job: potteryWheel.js only handles pottery creation kiln.js only handles firing PotteryCatalog.js only handles pricing and inventory management and potteryList.js only handles rendering HTML. This makes the code easier to maintain because if there's a bug or you need to make changes you know exactly which module to look in. It also makes the code more reusable
+
 4. The pottery shop has learned that there is a set of customers that are willing to buy cracked pottery at a discounted price of $2.50. That means that the cracked pottery should now be displayed in the catalog. Explain the changes that this new business strategy would cause to your algorithm.
-   > Your answer here
+   > This business strategy would require changes to the PotteryCatalog.js module. Currently the toSellOrNotToSell function filters out all cracked pottery and never adds it to the potteryForSell array. To implement this new strategy I would need to modify the logic so that cracked pottery is now added to the inventory instead of being discarded. I would update the toSellOrNotToSell function to include an additional if statement. if the pottery is cracked assign it a price of $2.50 regardless of weight. If the pottery is not cracked keep the existing pricing logic ($40 for items weighing 6 or more and $20 for lighter pieces). This way all pottery both cracked and non cracked would be added to the potteryForSell array and displayed in the catalog.
 5. In the **Kiln** module, you have a `firePottery()` function. You need to demonstrate how to use the debugger to verify the values of the parameters for that function when your code runs. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/6d01dea388db4806bba8998a2c0578e2
